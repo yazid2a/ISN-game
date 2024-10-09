@@ -1,8 +1,6 @@
 Sprint 1: 
 Les taches à faire: 09/10-->23/10:
 
--->Créer le répertoire de jeu
-
 -->Installation de l'IDE pour le langage de programmation(Configuration des bibliothèques).
 
 -->Création du labyrinthe: 
