@@ -1,0 +1,26 @@
+Sprint 1: 
+Les fonctionnalités à faire: 09/10-->23/10:
+
+-->Création du labyrinthe fixe et borné: 
+	Créer un labyrinthe de base dont les dimensions sont fixes et les limites sont bien définies.
+	Structure de données pour la représentation du labyrinthe: Utiliser une matrice 2D représenter le labyrinthe où chaque case indique un chemin ou un obstacle.
+ 
+-->Interface utilisateur texte du jeu: 
+	Créer une interface client en mode texte(terminal) pour contrôler le héros.
+	Afficher les positions actuelles du héros et du monstre dans le terminal.
+	Laisser le joueur entrer des commandes dans le terminal via le clavier afin de choisir de se déplacer ou non.
+
+-->Affichage aléatoire du monstre:
+	Créer un monstre qui se déplace aléatoirement dans le labyrinthe.
+	Mettre en oeuvres un système pour détecter les collisions entre héros et monstre puis définir les conséquences pour le joueur.
+	
+	
+	
+
+
+
+	
+ 
+
+
+
