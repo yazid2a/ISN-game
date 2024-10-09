@@ -6,9 +6,9 @@ Les fonctionnalités à faire: 09/10-->23/10:
 	-Structure de données pour la représentation du labyrinthe: Utiliser une matrice 2D pour représenter le labyrinthe où chaque case indique un chemin ou un obstacle.
  
 -->Interface utilisateur texte du jeu:(Amrhar, Habbi)
-	-Créer une interface client en mode texte(terminal) pour contrôler le héros.
+	-Créer une interface utilisateur en mode texte(terminal) pour contrôler le héros.
 	-Afficher les positions actuelles du héros et du monstre dans le terminal.
-	-Laisser le joueur entrer des commandes dans le terminal via le clavier afin de choisir de se déplacer ou non.
+	-Permettre au joueur de saisir des commandes au clavier dans le terminal pour choisir entre se déplacer dans le labyrinthe ou rester immobile.
 
 -->Affichage aléatoire du monstre:(El Archaoui)
 	-Créer un monstre qui se déplace aléatoirement dans le labyrinthe.
