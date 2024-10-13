@@ -2,23 +2,31 @@ Sprint 1:
 Les fonctionnalités à faire: 09/10-->23/10:
 
 -->Création du labyrinthe fixe:(Kerrazi)
+HC: à partir d'un fichier? sinon, comment?
 	-Créer un labyrinthe de base dont les dimensions sont fixes et les limites sont bien définies.
 	-Structure de données pour la représentation du labyrinthe: Utiliser une matrice 2D pour représenter le labyrinthe où chaque case indique un chemin ou un obstacle.
  
 -->Interface utilisateur texte du jeu:(Amrhar, Habbi)
+HC: la fonctionnalité serait plutôt "déplacer un héros dans le labyrinthe"
 	-Créer une interface utilisateur en mode texte(terminal) pour contrôler le héros.
 	-Afficher les positions actuelles du héros et du monstre dans le terminal.
 	-Permettre au joueur de saisir des commandes au clavier dans le terminal pour choisir entre se déplacer dans le labyrinthe ou rester immobile.
 
 -->Affichage aléatoire du monstre:(El Archaoui)
+HC: la fonctionnalité serait plutôt "un monstre se déplace aléatoirement dans le labyrinthe et ..."
 	-Créer un monstre qui se déplace aléatoirement dans le labyrinthe.
 	-Mettre en oeuvre un système pour détecter les collisions entre le héros et le monstre puis définir les conséquences de cela sur le joueur(perte de vie ou fin de la partie).
+HC: c'est mainteannt qu'il faut définir les conséquences 
 
 pour le test du premier programme à l'aide du l'outil maven il faut : 
 1) cloner le répertoire et aller vers le chemin suivant : ACL-2024--Mrarqua-\Sprints\SPRINT1\Programme\mon-projet
 2) compiler à l'aide de la commande " mvn clean compile "
 3) executer la classe principale qui contient le programme principale à l'aide de la commande ( mvn exec:java -Dexec.mainClass="mrarqua.App" )
 	
+
+HC: c'est dans le README qu'il faut mettre ces indications
+HC: les sources ne sont pas au bon niveau
+HC: quel est le but de GrpMr
 	
 	
 
