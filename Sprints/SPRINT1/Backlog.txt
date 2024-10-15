@@ -14,10 +14,6 @@ Les fonctionnalités à faire: 09/10-->23/10:
 	-Créer un monstre qui se déplace aléatoirement dans le labyrinthe.
 	-Mettre en oeuvre un système pour détecter les collisions entre le héros et le monstre puis définir les conséquences de cela sur le joueur(perte de vie ou fin de la partie).
 
-pour le test du premier programme à l'aide du l'outil maven il faut : 
-1) cloner le répertoire et aller vers le chemin suivant : ACL-2024--Mrarqua-\Sprints\SPRINT1\Programme\mon-projet
-2) compiler à l'aide de la commande " mvn clean compile "
-3) executer la classe principale qui contient le programme principale à l'aide de la commande ( mvn exec:java -Dexec.mainClass="mrarqua.App" )
 	
 	
 	
