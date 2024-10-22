@@ -17,7 +17,7 @@ public class main {
             hero.displayGrid();
             hero.displayPosition();
 
-            System.out.println("Utilise z (haut), s (bas), q (gauche), d (droite) pour déplacer le héros.");
+            System.out.println("Utilise u (haut), d (bas), l (gauche), r (droite) pour déplacer le héros.");
             char direction = scanner.next().charAt(0);
 
             hero.move(direction);

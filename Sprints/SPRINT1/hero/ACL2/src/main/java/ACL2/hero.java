@@ -33,16 +33,16 @@ public class hero {
 
     public void move(char direction) {
         switch (direction) {
-            case 'z': // haut
+            case 'u': // haut
                 if (y > 0) y--;
                 break;
-            case 's': // bas
+            case 'd': // bas
                 if (y < hauteur - 1) y++;
                 break;
-            case 'q': // gauche
+            case 'l': // gauche
                 if (x > 0) x--;
                 break;
-            case 'd': // droite
+            case 'r': // droite
                 if (x < largeur - 1) x++;
                 break;
             default:
