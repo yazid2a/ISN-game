@@ -13,6 +13,7 @@ Les fonctionnalités à faire: 09/10-->23/10:
 -->un monstre se déplace aléatoirement dans le labyrinthe :(El Archaoui)
 	-Créer un monstre qui se déplace aléatoirement dans le labyrinthe.
 	-Mettre en oeuvre un système pour détecter les collisions entre le héros et le monstre puis définir les conséquences de cela sur le joueur(perte de vie ou fin de la partie).
+chnhshddgf
 
 	
 	
