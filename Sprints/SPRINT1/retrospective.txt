@@ -1,2 +1,6 @@
 -->Chaque fonctionnalité a été traitée à part et par manque de communication, nous n'avons pas pu assembler nos codes pour avoir une première version de jeu qui marche.
 
+-->Solutions: 
+-Faire plus des réunions régulièrement.
+-Activer les notifications pour que toute l'équipe soit informée par les modifications faites.
+
