@@ -2,6 +2,6 @@
 Nous avons réussi la création du labyrinthe à part.
 
 -->Sur la fonctionnalité du déplacement du héros et celui du monstre dans le labyrinthe : 
-Nous n'avons pas réussi à  insérer le héros et le monstre  et à les faire déplacer dans le labyrinthe.
+Nous n'avons pas réussi à  insérer le héros et le monstre  et à les faire déplacer dans le labyrinthe.Cependant les classes héros et codes marchent bien indépendemment.
 
 
