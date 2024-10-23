@@ -1,3 +1,2 @@
 -->Chaque fonctionnalité a été traitée à part et par manque de communication, nous n'avons pas pu assembler nos codes pour avoir une première version de jeu qui marche.
 
--->
