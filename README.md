@@ -23,5 +23,4 @@ requirements :
 2) executer la commande ``` mvn clean compile ```
 3) executer la commande ``` mvn package ```
 4) executer la commande ``` mvn package ```
-5) executer la classe principale qui contient le programme principale à l'aide de la commande ``` java -cp target/acl1-0.0.1-SNAPSHOT.jar acl1.LabyrintheJeu
- ```
+5) executer la classe principale qui contient le programme principale à l'aide de la commande ``` java -cp target/acl1-0.0.1-SNAPSHOT.jar acl1.LabyrintheJeu ```
