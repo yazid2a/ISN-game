@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\hiday\OneDrive\Documents\GitHub\ACL-2024--Mrarqua-\Sprints\SPRINT1\hero\ACL2\.metadata\.plugins\org.eclipse.jdt.core
+4272851103.index
+1288848795.index
+1865797976.index

@@ -1,5 +1,5 @@
 public class hero {
-
+	//hhh
     private int x;
     private int y;
     private int largeur;
