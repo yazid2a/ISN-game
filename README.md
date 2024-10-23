@@ -19,6 +19,9 @@ requirements :
 
 [lien instruction pour installation MAVEN](https://maven.apache.org/install.html)
 
-1) cloner le répertoire et aller vers le chemin suivant : ```ACL-2024--Mrarqua-\Sprints\SPRINT1\Programme\mon-projet```
-2) compiler à l'aide de la commande ``` mvn clean compile ```
-3) executer la classe principale qui contient le programme principale à l'aide de la commande ``` mvn exec:java -Dexec.mainClass="mrarqua.App" ```
+1) cloner le répertoire et aller vers le chemin suivant : ```ACL-2024--Mrarqua-\Programme```
+2) executer la commande ``` mvn clean compile ```
+3) executer la commande ``` mvn package ```
+4) executer la commande ``` mvn package ```
+5) executer la classe principale qui contient le programme principale à l'aide de la commande ``` java -cp target/acl1-0.0.1-SNAPSHOT.jar acl1.LabyrintheJeu
+ ```
