@@ -12,7 +12,15 @@ public class main {
 
         hero hero = new hero(largeur / 2, hauteur / 2, largeur, hauteur);
 
-        while (true) {
+        JFrame fenetre = new JFrame("Jeu de Labyrinthe");
+        GamePanel panneauDeJeu = new GamePanel();
+
+        fenetre.add(panneauDeJeu);
+        fenetre.setSize(500, 500); 
+        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        fenetre.setVisible(true); 
+        
+       /* while (true) {
             hero.displayGrid();
             hero.displayPosition();
 
@@ -20,7 +28,7 @@ public class main {
             char direction = scanner.next().charAt(0);
 
             hero.move(direction);
-        }
+        }*/
     }
 }
 
