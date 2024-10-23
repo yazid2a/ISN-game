@@ -1,0 +1,7 @@
+-->Sur la fonctionnalité de la création du labyrinthe fixe:
+Nous avons réussi la création du labyrinthe à part.
+
+-->Sur la fonctionnalité du déplacement du héros et celui du monstre dans le labyrinthe : 
+Nous n'avons pas réussi à  insérer le héros et le monstre  et à les faire déplacer dans le labyrinthe.
+
+
