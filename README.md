@@ -19,7 +19,7 @@ requirements :
 
 [lien instruction pour installation MAVEN](https://maven.apache.org/install.html)
 
-1) cloner le répertoire et aller vers le chemin suivant : ```ACL-2024--Mrarqua-\Programme2```
+1) cloner le répertoire et aller vers le chemin suivant : ```ACL-2024--Mrarqua-\Programme2\ProGame```
 2) executer la commande ``` mvn clean compile ```
 3) executer la commande ``` mvn package ```
 4) executer la commande ``` java -cp target/ProGame-0.0.1-SNAPSHOT.jar game.programme2.main ```
