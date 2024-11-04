@@ -7,6 +7,7 @@ public class hero extends Rectangle{
 	public boolean right,left,up,down;
 	private final int  speed=30;//taille d'une case du labyrinthe
 	private labyrinthe labyrinthe;
+	private int vie = 100;
 	
 	  public hero(int x, int y,labyrinthe labyrinthe) {
 	        this.x = x;
@@ -34,7 +35,13 @@ public class hero extends Rectangle{
 		
 		 
 	}
+	public void decreaseLife(int amount) {
+        vie = Math.max(vie - amount, 0); // Assure que la vie ne soit pas négative
+    }
 	
+	public int getVie() {
+        return vie;
+    }
 	private boolean canMoveTo(int newX,int newY) {
 		int mazeX=newX/speed;
 		int mazeY=newY/speed;
