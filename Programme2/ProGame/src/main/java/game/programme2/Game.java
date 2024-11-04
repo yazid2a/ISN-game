@@ -27,6 +27,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 	//Trouver une position initiale libre pour le heros
 	Point initialPos=labyrinthe.findStartingPosition();
 	hero = new hero(initialPos.x*30,initialPos.y*30,labyrinthe);//Heros commence au centre de la cellule
+	monster = new Monstre(initialPos.x*30,initialPos.y*30,labyrinthe);
 	}
 	
 	public synchronized void start() {
@@ -55,7 +56,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 	
 	private void tick() { //mettre à jour l'état du jeu 
 	hero.tick();
-
+	monster.tick();
 	}
 
 	
@@ -89,7 +90,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 
 		//Afficher le heros
 		hero.render(g);
-
+		monster.render(g);
 		// Afficher la barre de vie
 		g.setColor(Color.red);
 		int barWidth = 100;
