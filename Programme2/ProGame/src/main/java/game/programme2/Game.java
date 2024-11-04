@@ -89,6 +89,17 @@ public class Game extends Canvas implements Runnable,KeyListener{
 
 		//Afficher le heros
 		hero.render(g);
+
+		// Afficher la barre de vie
+		g.setColor(Color.red);
+		int barWidth = 100;
+		int barHeight = 10;
+		int lifePercentage = hero.getVie();
+		g.fillRect(10, 10, barWidth, barHeight);
+		g.setColor(Color.green);
+		g.fillRect(10, 10, (lifePercentage * barWidth) / 100, barHeight);
+
+		
 		g.dispose();
 		bs.show();
 	}
