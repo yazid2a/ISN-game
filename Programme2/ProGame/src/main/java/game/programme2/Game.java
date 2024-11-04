@@ -14,7 +14,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 
 	public static  hero hero;
 	private labyrinthe labyrinthe;
-	
+	private Monstre monster;
 	public Game() {
 		Dimension dimension=new Dimension(Game.WIDTH,Game.HEIGHT);
 		setPreferredSize(dimension);
