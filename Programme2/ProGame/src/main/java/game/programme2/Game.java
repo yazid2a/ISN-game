@@ -99,7 +99,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 		requestFocus();
 		int fps =0;
 		double timer =System.currentTimeMillis();		long lasTime=System.nanoTime();
-		double targetTick =60.0;
+		double targetTick =60.0; // pour standariser la fréquence de mises à jour effectuées 
 		double delta = 0 ;
 		double ns=1000000000/targetTick;
 	  while(isRunning) {
@@ -115,7 +115,7 @@ public class Game extends Canvas implements Runnable,KeyListener{
 
 		}
       if(System.currentTimeMillis()- timer>=1000) {
-        System.out.println(fps);
+        System.out.println(fps);//afficher le nombre total de frames calculées pendant une seconde.
         fps= 0;
         timer+=1000;
 	  }
