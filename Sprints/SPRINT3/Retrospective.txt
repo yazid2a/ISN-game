@@ -1,0 +1,18 @@
+ -Ce qui a bien fonctionné :
+
+--> Réunions régulières : Nous avons mis en place des réunions comme recommandé dans la rétrospective du sprint2. Ces réunions ont permis de discuter de l’avancement de chaque fonctionnalité, d’identifier rapidement les obstacles, et de partager les mises à jour. 
+
+--> Activation des notifications : Nous avons activé les notifications sur notre outil de gestion de projet Github pour être informés des modifications apportées au code. Cela a amélioré la transparence et la réactivité de l'équipe face aux changements.
+
+-Ce qui pourrait être amélioré :
+
+-->Meilleure synchronisation des tâches : Bien que les réunions aient aidé à améliorer la communication, il reste encore des défis pour synchroniser nos développements. Parfois, des fonctionnalités développées indépendamment se retrouvent en conflit à l'intégration. Nous devons travailler sur une meilleure définition des interfaces et sur un suivi plus étroit des tâches en cours.
+
+--> Documentation des modifications : Il serait bénéfique d'améliorer la documentation des changements. Parfois, il n'était pas évident de comprendre le but de certaines modifications, ce qui a ajouté un peu de confusion lors de l'intégration du code.
+
+-Solutions mises en place:
+
+-->Continuer à renforcer la communication en organisant des réunions de suivi plus ciblées sur l'intégration des fonctionnalités. 
+-->Commenter chaque changement fait dans le code en mettant un commentaire au dessus de la partie du code modifiée comme suit:
+//Nom_personne_qui_a_modifié,modif.
+ 
