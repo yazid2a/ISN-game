@@ -1,0 +1,18 @@
+
+
+- Faire des tags 
+- enlever le module info .
+- Revoir la façon comment faire le backlog: Faire de vrais fonctionnalités.
+_ rendre les review et la retrospective dans le sprint 2.
+
+
+- Version 2 -->Tags 2
+
+Faire des branches : des que qlqu'un a comité 
+merger dans les autres branches.
+git merge__>mettre dans une  branche (mettre et copier) 
+
+
+ 
+
+
