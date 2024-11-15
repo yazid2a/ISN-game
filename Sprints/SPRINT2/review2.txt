@@ -1,0 +1,18 @@
+Le 04/11:
+
+
+--> Créer la première version de l'interface graphique:(Kerrazi,Habbi)-->
+
+    -Utiliser des couleurs et des images simples pour différencier le héros, le monstre, et les obstacles dans le labyrinthe. OK
+
+    -Ajouter un compteur de vie et de points visible dans l'interface graphique représentant les chances de vie du héros.--> OK 
+
+pas vrai
+
+-->Modifier les classes héros, monstre, labyrinthe:(Amrhar, El Archaoui)-->
+
+	-Ajouter un attribut pour la gestion du nombre de vie. NON OK
+	-Ajuster le déplacement aléatoire pour que le monstre se déplace aussi visuellement dans l'interface graphique. NON OK
+	-Gérer la mise à jour des obstacles et des chemins pour avoir un affichage correcte en fonction des nouvelles interactions du joueur dans l'interface graphique.-->Ok
+
+
