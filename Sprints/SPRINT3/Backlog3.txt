@@ -4,7 +4,7 @@
 
 -->Fonctionnalité 2: Ajouter une barre de vie pour le héros.(El Archaoui)
 
---> Fonctionnalité 3: Création d'objets et de personnages pour enrichir le jeu.(Kerrazi, EL Archaoui)
+--> Fonctionnalité 3: Création d'objets(clés, portes) et de personnages(policiers) pour enrichir le jeu.(Kerrazi, EL Archaoui)
 
 -->Fonctionnalité 4 : Création de la musique et des effets sonores. (Habbi)
 
