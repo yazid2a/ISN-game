@@ -1,5 +1,6 @@
 package Main;
 
+import Objects.OBJ_Boots;
 import Objects.OBJ_Chest;
 import Objects.OBJ_Door;
 import Objects.OBJ_Key;
@@ -31,13 +32,18 @@ GamePanel gp;
 		gp.obj[4]= new OBJ_Door();
 		gp.obj[4].worldX = 8 * gp.titleSize;
 		gp.obj[4].worldY = 28 * gp.titleSize;
-		gp.obj[5]= new OBJ_Door();
+		
+	/*	gp.obj[5]= new OBJ_Door();
 		gp.obj[5].worldX = 12 * gp.titleSize;
-		gp.obj[5].worldY = 22 * gp.titleSize;
+		gp.obj[5].worldY = 22 * gp.titleSize;*/
 		
 		gp.obj[6]= new OBJ_Chest();
 		gp.obj[6].worldX = 10 * gp.titleSize;
 		gp.obj[6].worldY = 7 * gp.titleSize;
+		
+		gp.obj[7]= new OBJ_Boots();
+		gp.obj[7].worldX = 37 * gp.titleSize;
+		gp.obj[7].worldY = 42 * gp.titleSize;
 		
 	}
 }

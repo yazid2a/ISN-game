@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public final int screenHeight = titleSize * maxScreenRow ;
 	public final int maxWorldCol = 50;
 	public final int maxWorldRow = 50;
+	//to delete after :
 	public final int worldWidth = titleSize*maxWorldCol;
 	public final int worldHeight = titleSize*maxWorldRow;
 
@@ -30,9 +31,16 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	TileManager tileM = new TileManager(this);
 	KeyHandler keyh = new KeyHandler();
-	Thread gameThread;
+	Sound music=new Sound();
+	Sound se = new Sound();
+	
 	public CollisionCheck cChecker=new CollisionCheck(this);
 	public AssetSetter aSetter = new AssetSetter(this);
+	public UI ui= new UI(this);
+	
+	Thread gameThread;
+	
+	//entity and object
 	public Player player = new Player(this,keyh);
 	public SuperObject obj[]= new SuperObject[10];
 	
@@ -53,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	public void setupGame() {
 		aSetter.setObject();
+		playMusic(0);
 	}
 	public void startGameThread() {
 		gameThread = new Thread(this);
@@ -112,6 +121,8 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 		//player
 		player.draw(g2);
+		//UI
+		ui.draw(g2);
 		
 		// Dessiner chaque monstre
         for (monster m : monsters) {
@@ -124,7 +135,19 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		
 	}
+	public void playMusic(int i) {
+		music.setFile(i);
+		music.play();
+		music.loop();
+	}
+	public void stopMusic() {
+		music.stop();
+	}
 	
+	public void playSE(int i) {
+		se.setFile(i);
+		se.play();
+	}
 	
 
 }
