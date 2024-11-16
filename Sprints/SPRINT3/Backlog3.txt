@@ -6,7 +6,7 @@
 
 --> Fonctionnalité 3: Création d'objets(clés, portes) et de personnages(policiers) pour enrichir le jeu.(Kerrazi, EL Archaoui)
 
--->Fonctionnalité 4 : Création de la musique et des effets sonores. (Habbi)
+-->Fonctionnalité 4 : Création de la musique,des effets sonores et des objets (clés,portes,coffres) (Habbi)
 
 -->Fonctionnalité 5: Amélioration de la MAP du Jeu(Kerrazi).
 
