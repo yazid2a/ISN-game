@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable {
 	int FPS = 60;
 	
 	TileManager tileM = new TileManager(this);
-	KeyHandler keyh = new KeyHandler();
+	KeyHandler keyh = new KeyHandler(this);
 	Sound music=new Sound();
 	Sound se = new Sound();
 	
@@ -45,8 +45,10 @@ public class GamePanel extends JPanel implements Runnable {
 	public SuperObject obj[]= new SuperObject[10];
 	
 
-	 public ArrayList<monster> monsters = new ArrayList<>();
-	
+	public ArrayList<monster> monsters = new ArrayList<>();
+	public int gameState; 
+	public final int playState = 1;
+	public final int pauseState = 2;
 
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth,screenHeight));
@@ -62,6 +64,8 @@ public class GamePanel extends JPanel implements Runnable {
 	public void setupGame() {
 		aSetter.setObject();
 		playMusic(0);
+		stopMusic();
+		gameState = playState;
 	}
 	public void startGameThread() {
 		gameThread = new Thread(this);
@@ -98,12 +102,11 @@ public class GamePanel extends JPanel implements Runnable {
 		
 	}
 	public void update() {
-		player.update();
-		for (monster m : monsters) {
-            if (m.isAlive()) {
-                m.update(); // You can add monster movement if needed
-            }
-        }
+		//player.update();
+		if(gameState == playState) {
+			player.update();
+		}if(gameState == pauseState) {
+		}
 		
 	}
 	
@@ -113,7 +116,9 @@ public class GamePanel extends JPanel implements Runnable {
 		// DEBUG
 		long drawStart = 0;
 		if (keyh.checkDrawTime == true){
-		drawStart = System.nanoTime();}
+			drawStart = System.nanoTime();
+			
+		}
 		//tile
 		tileM.draw(g2);
 		
@@ -130,11 +135,13 @@ public class GamePanel extends JPanel implements Runnable {
 		
 		// DEBUG
 		if (keyh.checkDrawTime == true) {
-		long drawEnd= System.nanoTime();
-		long passed = drawEnd - drawStart;
-		g2.setColor(Color.white);
-		g2.drawString("Draw Time: " + passed, 10, 400);
-		System.out.println("Draw Time: "+passed) ; 
+			long drawEnd= System.nanoTime();
+			long passed = drawEnd - drawStart;
+			g2.setColor(Color.white);
+			g2.drawString("Draw Time: " + passed, 10, 400);
+			System.out.println("Draw Time: "+passed) ; 
+			
+		
 		}
 		g2.dispose();
 		}

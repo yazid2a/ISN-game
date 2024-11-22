@@ -16,7 +16,7 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
     
-    public int hasKey=0;
+    //public int hasKey=0;
     public OBJ_Heart lifeBar;
     int counter2 = 0;    
     
@@ -136,37 +136,7 @@ public class Player extends Entity {
     
     public void pickUpObject(int i) {
     	if (i != 999) {
-    		String objectName=gp.obj[i].name;
-    		switch(objectName) {
-    		case "Key":
-    			gp.playSE(1);
-    			hasKey++;
-    			gp.obj[i]=null;
-    			gp.ui.showMessage("vous avez obtenue une clé !");
-    			break;
-    		case "Door":
-    			if (hasKey > 0) {
-    				gp.playSE(3);
-    				gp.obj[i]=null;
-    				hasKey--;
-    				gp.ui.showMessage("Porte ouverte !");
-    			}
-    			else {
-    				gp.ui.showMessage("Vous avez besoin d'une clé !");
-    			}
-    			break;
-    		case "Boots":
-    			gp.playSE(2);
-    			speed+=2;
-    			gp.obj[i]=null;
-    			gp.ui.showMessage("augmentation de vitesse!");
-    			break;
-    		case "Chest":
-    			gp.ui.gameFinished=true;
-    			gp.stopMusic();
-    			gp.playSE(4);
-    			break;
-    		}
+    		
     	}
     	
     }
