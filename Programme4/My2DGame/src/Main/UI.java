@@ -7,12 +7,14 @@ import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
 import Objects.OBJ_Key;
-
+import Objects.OBJ_Heart;
+import Objects.SuperObject;
 public class UI {
 	GamePanel gp;
 	Graphics2D g2;
 	Font arial_40 , arial_80B;
 	//BufferedImage keyImage;
+	  BufferedImage heart_full, heart_half,heart_blank;
 	public boolean messageOn =false;
 	public String message="";
 	int messageCounter=0;
@@ -29,6 +31,11 @@ public class UI {
 		//OBJ_Key key = new OBJ_Key(gp);
 		//keyImage = key.image;
 		
+		//CREATE MUD OBJECT
+		SuperObject heart = new OBJ_Heart(gp);
+		heart_full=heart.image;
+		heart_half=heart.image2;
+		heart_blank=heart.image3;
 	}
 	
 	public void showMessage(String text) {
@@ -42,19 +49,50 @@ public class UI {
 		g2.setColor(Color.white);
 		//play state
 		if(gp.gameState == gp.playState) {
-			
+			drawPlayerLife();
 		}
 		//pausestate
 		if(gp.gameState== gp.pauseState) {
+			drawPlayerLife();
 			drawPauseScreen();
+			
 			
 		}
 		//dialogue
 		if(gp.gameState==gp.dialogueState) {
+			drawPlayerLife();
 			drawDialogueScreen();
 		}		
 }
+	//Dessiner le maximum de vies:
 
+	public void drawPlayerLife() {
+		//gp.player.life=5;
+		int x=gp.titleSize/2;
+		int y=gp.titleSize/2;
+		int i=0;
+		
+		while(i<gp.player.maxLife/2) {
+			g2.drawImage(heart_blank, x, y, null);
+			i++;
+			x+=gp.titleSize;
+		}
+		//RESET:
+			x=gp.titleSize/2;
+		 	y=gp.titleSize/2;
+		 	i=0;
+		//Dessiner la vie actuelle:
+		while(i<gp.player.life) {
+			g2.drawImage(heart_half, x, y, null);
+			i++;
+			if(i<gp.player.life) {
+				g2.drawImage(heart_full, x, y, null);	
+			}
+			i++;
+			x+=gp.titleSize;
+			
+		}
+	}
 	private void drawPauseScreen() {
 		g2.setFont(g2.getFont().deriveFont(Font.PLAIN,80F));
 		String text = "--PauSed--";

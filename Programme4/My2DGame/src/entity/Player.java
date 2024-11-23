@@ -40,6 +40,10 @@ public class Player extends Entity {
         worldY = gp.titleSize*21;
         speed = 4;
         directions ="down"; 
+        
+        //PLAYER STATUS
+        maxLife =6;
+        life= maxLife;
     }
 
     public void getPlayerImage() {
@@ -93,7 +97,11 @@ public class Player extends Entity {
             pickUpObject(objIndex);
             int npcIndex=gp.cChecker.checkEntity(this, gp.npc);
             intercatNPC(npcIndex);
+            
+            //check EVENT
+            gp.eHandler.checkEvent();
 
+            gp.keyh.enterPressed=false;
             // Si la collision est fausse, le joueur peut se déplacer
             if (!collisionOn) {
                 switch (directions) {
@@ -137,8 +145,6 @@ if (i != 999) {
 	
     		
     	}
-gp.keyh.enterPressed=false;
-    	
     }
 
     public void draw(Graphics2D g2) {
