@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+
+import entity.Entity;
 import entity.Player;
 import tile.TileManager;
 import Monstre.monster;
@@ -37,7 +39,6 @@ public class GamePanel extends JPanel implements Runnable {
 	public CollisionCheck cChecker=new CollisionCheck(this);
 	public AssetSetter aSetter = new AssetSetter(this);
 	public UI ui= new UI(this);
-	
 	Thread gameThread;
 	
 	//entity and object
@@ -46,7 +47,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public Entity npc[]=new Entity[10];
 	
 
-	public ArrayList<monster> monsters = new ArrayList<>();
+	//public ArrayList<monster> monsters = new ArrayList<>();
 	public int gameState; 
 	public final int playState = 1;
 	public final int pauseState = 2;
@@ -73,8 +74,8 @@ public class GamePanel extends JPanel implements Runnable {
 		gameThread = new Thread(this);
 		gameThread.start();
 		 // Add monsters to the game
-        monsters.add(new monster(100, 100));
-        monsters.add(new monster(200, 200));
+        //monsters.add(new monster(100, 100));
+       // monsters.add(new monster(200, 200));
 		
 	}
 

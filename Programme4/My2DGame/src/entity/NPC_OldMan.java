@@ -6,13 +6,11 @@ public class NPC_OldMan extends Entity{
 	
 	public NPC_OldMan(GamePanel gp) {
 		super(gp);
-		direction="down";
+		//direction="down";
 		speed=1;
 		getImage();
 	}
-
-
-public void getImage() {
+	public void getImage() {
     
     up1 = setup("/npc/oldman_down_1");
     up2 = setup("/npc/oldman_down_2");

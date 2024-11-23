@@ -14,9 +14,6 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
-    
-    //public int hasKey=0;
-    public OBJ_Heart lifeBar;
     int counter2 = 0;    
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -25,7 +22,7 @@ public class Player extends Entity {
         this.keyH = keyH;
         screenX = gp.screenWidth/2 - (gp.titleSize/2);
         screenY = gp.screenHeight/2 - (gp.titleSize/2);
-        this.lifeBar = new OBJ_Heart(6);
+        
         solidArea =new Rectangle();
         solidArea.x=8;
         solidArea.y=16;
@@ -75,12 +72,12 @@ public class Player extends Entity {
         }
 
         // Check collision with monsters
-        for (monster m : gp.monsters) {
+        /*for (monster m : gp.monsters) {
             if (this.solidArea.intersects(m.solidArea) && m.isAlive()) {
                 lifeBar.loseLife();
                 m.setDead();  // Kill the monster
             }
-        }
+        }*/
     
         
         //Verifie la collision 

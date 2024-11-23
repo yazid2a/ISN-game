@@ -1,6 +1,13 @@
 package entity;
 
 import java.awt.image.BufferedImage;
+import java.awt.Graphics2D;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
+import Main.GamePanel;
+import Main.UtilityTool;
+
 import java.awt.Rectangle;
 public class Entity {
 	GamePanel gp;
@@ -8,8 +15,6 @@ public class Entity {
 	public int speed;
 	public BufferedImage up1,up2,down1,down2,left1,left2,right1,right2;
 	public String directions;
-	
-	
 	public int spriteCounter = 0;
 	public int spritNum =1;
 	public Rectangle solidArea=new Rectangle(0,0,48,48);
@@ -18,7 +23,8 @@ public class Entity {
 	
 	public Entity(GamePanel gp) {
 		this.gp=gp;
-	}
+	}	
+	
 	public void draw(Graphics2D g2) {
 		 BufferedImage image = null;
 		int screenX = worldX - gp.player.worldX + gp.player.screenX;

@@ -6,15 +6,19 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import Main.GamePanel;
+
 public class monster extends Entity {
     private BufferedImage slimeImage;
     private boolean isAlive = true;
 
-    public monster(int x, int y) {
+    public monster(int x, int y, GamePanel gp) {
+        super(gp);  // Appel du constructeur parent Entity avec GamePanel
         this.worldX = x;
         this.worldY = y;
         setSlimeImage();
     }
+
 
     // Charger l'image du monstre
     private void setSlimeImage() {
