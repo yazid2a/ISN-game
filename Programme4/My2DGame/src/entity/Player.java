@@ -78,7 +78,8 @@ public class Player extends Entity {
                 m.setDead();  // Kill the monster
             }
         }*/
-    
+    // Verifier la collision NPC
+        
         
         //Verifie la collision 
    
@@ -90,7 +91,8 @@ public class Player extends Entity {
             //verifier collision avec objet
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
-            
+            int npcIndex=gp.cChecker.checkEntity(this, gp.npc);
+            intercatNPC(npcIndex);
 
             // Si la collision est fausse, le joueur peut se déplacer
             if (!collisionOn) {
@@ -124,6 +126,18 @@ public class Player extends Entity {
     	if (i != 999) {
     		
     	}
+    	
+    }
+    public void intercatNPC(int i) {
+if (i != 999) {
+	if(gp.keyh.enterPressed==true) {
+		gp.gameState=gp.dialogueState;
+		gp.npc[i].speak();
+	}
+	
+    		
+    	}
+gp.keyh.enterPressed=false;
     	
     }
 

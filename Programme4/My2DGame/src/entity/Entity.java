@@ -20,11 +20,63 @@ public class Entity {
 	public Rectangle solidArea=new Rectangle(0,0,48,48);
 	public int solidAreaDefaultX,solidAreaDefaultY;
 	public boolean collisionOn=false;
+	public int actionLockCounter=0;
+	String dialogues[]=new String[20];
 	
 	public Entity(GamePanel gp) {
 		this.gp=gp;
 	}	
-	
+	public void setAction() {}
+	public void speak() {
+		gp.ui.currentDialogue=dialogues[0];
+		switch(gp.player.directions) {
+		case "up":
+			directions="down";
+			break;
+		case "down":
+			directions="up";
+			break;
+		case "left":
+			directions="right";
+			break;
+		case "right":
+			directions="left";
+			break;
+		}
+	}
+	public void update() {
+		setAction();
+		collisionOn=false;
+		gp.cChecker.checkTile(this);
+		gp.cChecker.checkObject(this, false);
+		gp.cChecker.checkPlayer(this);
+		// Si la collision est fausse, le joueur peut se déplacer
+        if (!collisionOn) {
+            switch (directions) {
+                case "up":
+                    worldY -= speed;
+                    break;
+                case "down":
+                    worldY += speed;
+                    break;
+                case "left":
+                    worldX -= speed;
+                    break;
+                case "right":
+                    worldX += speed;
+                    break;
+            }
+        }
+  
+
+    // Animation du joueur
+    spriteCounter++;
+    if (spriteCounter > 10) {
+        spritNum = (spritNum == 1) ? 2 : 1;
+        spriteCounter = 0;
+    }
+		
+	}
 	public void draw(Graphics2D g2) {
 		 BufferedImage image = null;
 		int screenX = worldX - gp.player.worldX + gp.player.screenX;
