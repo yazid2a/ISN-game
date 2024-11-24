@@ -2,7 +2,7 @@
 
 --> Fonctionnalité 1: Créer des monstres qui se déplacent aléatoirement dans notre MAP tel que le héros perd la moitié d'une vie lorsqu'il l'attrape.(Hidaya)->OK
 
--->Fonctionnalité 2: Ajouter une barre de vie pour le héros.(El Archaoui)->OK
+-->Fonctionnalité 2: Ajouter une barre de vie pour le héros.Ajout de nouveaux textes dans le jeu pour enrichir l'expérience utilisateur et améliorer la narration.(El Archaoui)->OK
 
 --> Fonctionnalité 3: Création d'objets(clés, portes) et de personnages(policiers) pour enrichir le jeu.(Kerrazi, EL Archaoui)->OK
 
