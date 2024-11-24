@@ -11,7 +11,8 @@ Mise en oeuvre des solutions précédentes : Les solutions proposées lors de la
 
 -->Ce qui pourrait être amélioré :
 
-	.Temps consacré à la refactorisation : Une part significative du sprint a été utilisée pour corriger des parties de code précédentes. Ces ajustements étaient nécessaires pour avancer, mais ils ont parfois ralenti le développement des nouvelles fonctionnalités. Une meilleure planification de ces tâches pourrait éviter des retards futurs.
+	.Temps consacré à la refactorisation : Une part significative du sprint a été utilisée pour corriger des parties de code précédentes. 
+Ces ajustements étaient nécessaires pour avancer, mais ils ont parfois ralenti le développement des nouvelles fonctionnalités. Une meilleure planification de ces tâches pourrait éviter des retards futurs.
 
 	.Clarification des exigences : Certains malentendus sur les besoins liés aux fonctionnalités en cours ont nécessité des retours en arrière. Nous devons nous assurer que les exigences sont bien comprises et validées en amont.
 
