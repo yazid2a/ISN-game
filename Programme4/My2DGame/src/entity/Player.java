@@ -1,5 +1,8 @@
 package entity;
 
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -9,11 +12,12 @@ import Main.GamePanel;
 import Main.KeyHandler;
 import Main.UtilityTool;
 import Objects.OBJ_Heart;
-import Monstre.monster;
+
 public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
+    int standCounter = 0;
     int counter2 = 0;    
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -60,75 +64,103 @@ public class Player extends Entity {
     }
    
     public void update() {
-        if (keyH.upPressed) {
+    	if(keyH.upPressed==true||keyH.downPressed==true||
+    	keyH.leftPressed==true||keyH.rightPressed==true||keyH.enterPressed==true) {
+       
+    	if (keyH.upPressed==true) {
             directions = "up";
      
-        } else if (keyH.downPressed) {
+        } else if (keyH.downPressed==true) {
             directions = "down";
          
-        } else if (keyH.leftPressed) {
+        } else if (keyH.leftPressed==true) {
             directions = "left";
     
-        } else if (keyH.rightPressed) {
+        } else if (keyH.rightPressed==true) {
             directions = "right";
-        } else {
-            directions = null; // Si aucune touche n'est pressée, la direction est null
-        }
+        } //else {
+           // directions = null; // Si aucune touche n'est pressée, la direction est null
+       // }
 
-        // Check collision with monsters
-        /*for (monster m : gp.monsters) {
-            if (this.solidArea.intersects(m.solidArea) && m.isAlive()) {
-                lifeBar.loseLife();
-                m.setDead();  // Kill the monster
-            }
-        }*/
-    // Verifier la collision NPC
+       
         
-        
-        //Verifie la collision 
-   
           
-        if (directions != null) {
+        //if (directions != null) {
             collisionOn = false;
             gp.cChecker.checkTile(this);
             
             //verifier collision avec objet
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
+            
+            //verifier collision avec NPC
             int npcIndex=gp.cChecker.checkEntity(this, gp.npc);
             intercatNPC(npcIndex);
+            
+            //verifie la collision avec monster
+            int monsterIndex=gp.cChecker.checkEntity(this,gp.monster);
+            contactMonster(monsterIndex);
+            
             
             //check EVENT
             gp.eHandler.checkEvent();
 
-            gp.keyh.enterPressed=false;
+            //gp.keyH.enterPressed=false;
             // Si la collision est fausse, le joueur peut se déplacer
-            if (!collisionOn) {
+            //if (!collisionOn) {
+            if(collisionOn==false && gp.keyH.enterPressed==false) {
                 switch (directions) {
-                    case "up":
-                        worldY -= speed;
+                    case "up":worldY -= speed;
                         break;
-                    case "down":
-                        worldY += speed;
+                    case "down":worldY += speed;
                         break;
-                    case "left":
-                        worldX -= speed;
+                    case "left":worldX -= speed;
                         break;
-                    case "right":
-                        worldX += speed;
+                    case "right": worldX += speed;
                         break;
                 }
             }
+            gp.keyH.enterPressed=false;
+        //}
+        spriteCounter++;
+        if(spriteCounter>12) {
+        	if(spritNum==1) {
+        		spritNum=2;
+        	}
+        	else if(spritNum==2) {
+        		spritNum=1;
+        	}
+        	spriteCounter=0;
         }
-        
+        }
+    	else {
+    		standCounter++;
+    		if(standCounter==20) {
+    			spritNum=1;
+    			standCounter=0;
+    			
+    		}
+    		}
+    	 //This needs to be outside of key if statement!
+        if(invincible==true) {
+        	invincibleCounter++;
+        	if(invincibleCounter>60) {
+        		invincible=false;
+        		invincibleCounter=0;
+        	}
+        	
+        }
+    	}
 
         // Animation du joueur
-        spriteCounter++;
-        if (spriteCounter > 10) {
-            spritNum = (spritNum == 1) ? 2 : 1;
-            spriteCounter = 0;
-        }
-    }
+       // spriteCounter++;
+        //if (spriteCounter > 10) {
+           // spritNum = (spritNum == 1) ? 2 : 1;
+            //spriteCounter = 0;
+       // }
+   // }
+    
+    
     
     public void pickUpObject(int i) {
     	if (i != 999) {
@@ -138,7 +170,7 @@ public class Player extends Entity {
     }
     public void intercatNPC(int i) {
 if (i != 999) {
-	if(gp.keyh.enterPressed==true) {
+	if(gp.keyH.enterPressed==true) {
 		gp.gameState=gp.dialogueState;
 		gp.npc[i].speak();
 	}
@@ -146,31 +178,68 @@ if (i != 999) {
     		
     	}
     }
+    
+    public void contactMonster(int i) {
+    	if(i!=999) {
+    		if(invincible==false) {
+    			life-=1;
+    			invincible=true;
+    		}
+    	}
+    }
 
     public void draw(Graphics2D g2) {
         BufferedImage image = null;
 
         // Choix de l'image en fonction de la direction et de l'animation
-        if (directions != null) {
+        //if (directions != null) {
             switch (directions) {
                 case "up":
-                    image = (spritNum == 1) ? up1 : up2;
+                	if(spritNum==1) {
+                		image=up1;
+                	}
+                    if(spritNum == 2) { 
+                    	image = up2;}
                     break;
                 case "down":
-                    image = (spritNum == 1) ? down1 : down2;
+                	if(spritNum==1) {
+                		image=down1;
+                	}
+                    if(spritNum == 2) { 
+                    	image = down2;}
                     break;
                 case "left":
-                    image = (spritNum == 1) ? left1 : left2;
+                	if(spritNum==1) {
+                		image=left1;
+                	}
+                    if(spritNum == 2) { 
+                    	image = left2;}
                     break;
                 case "right":
-                    image = (spritNum == 1) ? right1 : right2;
+                	if(spritNum==1) {
+                		image=right1;
+                	}
+                    if(spritNum == 2) { 
+                    	image = right2;}
                     break;
             }
-        } else {
+        //} else {
             // Image par défaut si aucune direction n'est définie
-            image = down1;
-        }
+            //image = down1;
+       // }
+            
+            if(invincible==true) {
+            	g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.3f));
+            }
 
         g2.drawImage(image, screenX, screenY, null);
+        
+        //reste Alpha
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
+        //DEBUG
+      //  g2.setFont(new Font("Arial",Font.PLAIN,26));
+       // g2.setColor(Color.white);
+       // g2.drawString("Invincible:"+invincibleCounter, 10, 400);
+        
     }
-}
+        }

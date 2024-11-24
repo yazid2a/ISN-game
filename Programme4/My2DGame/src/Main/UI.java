@@ -5,10 +5,9 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
-
 import Objects.OBJ_Key;
 import Objects.OBJ_Heart;
-import Objects.SuperObject;
+import entity.Entity;
 public class UI {
 	GamePanel gp;
 	Graphics2D g2;
@@ -32,7 +31,7 @@ public class UI {
 		//keyImage = key.image;
 		
 		//CREATE MUD OBJECT
-		SuperObject heart = new OBJ_Heart(gp);
+		Entity heart = new OBJ_Heart(gp);
 		heart_full=heart.image;
 		heart_half=heart.image2;
 		heart_blank=heart.image3;
