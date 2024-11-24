@@ -1,0 +1,22 @@
+
+-->Ce qui a bien fonctionné :
+
+Mise en oeuvre des solutions précédentes : Les solutions proposées lors de la rétrospective précédente ont été bénéfiques.
+
+	.Les réunions régulières ont continué d’améliorer la communication et ont permis de mieux anticiper les défis liés à l’intégration des fonctionnalités.
+
+	.L’ajout de commentaires dans le code pour documenter les modifications a facilité la compréhension et la collaboration entre les membres de l’équipe.
+
+	.Collaboration accrue : Malgré les défis rencontrés, l’équipe a montré une grande capacité à collaborer efficacement, notamment lors de la résolution des problèmes d’intégration liés aux parties de code existantes.
+
+-->Ce qui pourrait être amélioré :
+
+	.Temps consacré à la refactorisation : Une part significative du sprint a été utilisée pour corriger des parties de code précédentes. Ces ajustements étaient nécessaires pour avancer, mais ils ont parfois ralenti le développement des nouvelles fonctionnalités. Une meilleure planification de ces tâches pourrait éviter des retards futurs.
+
+	.Clarification des exigences : Certains malentendus sur les besoins liés aux fonctionnalités en cours ont nécessité des retours en arrière. Nous devons nous assurer que les exigences sont bien comprises et validées en amont.
+
+-->Solutions proposées :
+
+	.Planification proactive de la refactorisation : Intégrer explicitement dans le backlog les tâches de refactorisation des anciennes parties du code.
+
+	.Validation collective des exigences : Avant le développement d’une fonctionnalité, organiser une réunion dédiée pour clarifier et valider les besoins, avec une checklist pour s’assurer que tous les cas ont été pris en compte.
