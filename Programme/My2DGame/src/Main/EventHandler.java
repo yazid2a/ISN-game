@@ -92,7 +92,7 @@ public class EventHandler {
   public void healingPool(int col,int row,int gameState) {
 	  if(gp.keyH.enterPressed==true) {
 		  gp.gameState=gameState;
-		  gp.ui.currentDialogue="Tu bois l'eau.\n Ta vie a été restaurée.  ";
+		  gp.ui.currentDialogue="Tu as bu de l'eau.\n Ta vie a été restaurée.  ";
 		  gp.player.life=gp.player.maxLife;
 	  }
 	 
