@@ -1,0 +1,5 @@
+Fonctionnalité 1: Faire un menu qui permet à l'utilisateur de commencer le jeu, faire un pause ou quitter le jeu.(El Archaoui)
+
+Fonctionnalité 2: Permettre au joueur de se défendre face aux monstres en utilisant une arme(épée ou flammes).(Hidaya)
+
+Fonctionnalité 3: Clarifier les contrôles du jeu en affichant une section dédiée aux commandes du clavier dans le menu principal.
