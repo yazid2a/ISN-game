@@ -35,6 +35,9 @@ public class Player extends Entity {
         solidArea.width=32;
         solidArea.height=32;
         
+        attackArea.width=36;
+        attackArea.height=36;
+        
         setDefaultValues();
         getPlayerImage();
         getPlayerAttackImage();
@@ -167,6 +170,33 @@ public void attacking() {
 	}
 	if(spriteCounter>5 && spriteCounter<=25) {
 		spritNum=2;
+		
+		
+		//Save the current worldX,worldY,solidArea
+		int currentWorldX=worldX;
+		int currentWorldY=worldY;
+		int solidAreaWidth=solidArea.width;
+		int solidAreaHeight=solidArea.height;
+		
+		//adjust player's worldX/Y for  the attackArea
+		switch(directions) {
+		case "up":worldY-=attackArea.height;break;
+		case "down":worldY+=attackArea.height;break;
+		case "left":worldX-=attackArea.width;break;
+		case "right":worldX+=attackArea.width;break;
+		}
+		//attackArea becomes solidArea
+		solidArea.width = attackArea.width;
+		solidArea.height = attackArea.height;
+		// check monster collision with the updated worldX,worldY and solidArea
+		int monsterIndex = gp.cChecker.checkEntity(this,gp.monster);
+		damageMonster(monsterIndex);
+		
+		//after checking collision, remote the original data
+		worldX = currentWorldX;
+		worldY = currentWorldY;
+		solidArea.width=solidAreaWidth;
+		solidArea.height= solidAreaHeight;	
 	}
 	if(spriteCounter>25) {
 		spritNum=1;
@@ -192,6 +222,19 @@ public void attacking() {
     		else {
     			attacking=true;
     		}	
+    	}
+    }
+    public void damageMonster(int i) {
+    	if(i!=999) {
+    		if(gp.monster[i].invincible == false) {
+    			gp.monster[i].life-=1;
+    			gp.monster[i].invincible=true;
+    			
+    			if(gp.monster[i].life<=0) {
+    				gp.monster[i]=null;
+    			}
+    		}
+    		
     	}
     }
     

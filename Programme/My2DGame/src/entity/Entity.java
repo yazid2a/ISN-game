@@ -1,6 +1,7 @@
 package entity;
 
 import java.awt.image.BufferedImage;
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import javax.imageio.ImageIO;
 import java.io.IOException;
@@ -16,6 +17,7 @@ public class Entity {
 	attackLeft1,attackLeft2,attackRight1,attackRight2; 
 	public BufferedImage image,image2,image3;
 	public Rectangle solidArea=new Rectangle(0,0,48,48);
+	public Rectangle attackArea=new Rectangle(0,0,0,0);
 	public int solidAreaDefaultX,solidAreaDefaultY;
 	public boolean collision = false;
 	String dialogues[]=new String[20];
@@ -99,6 +101,14 @@ public class Entity {
                     worldX += speed;
                     break;
             }
+             if(invincible==true) {
+            	invincibleCounter++;
+            	if(invincibleCounter>40) {
+            		invincible=false;
+            		invincibleCounter=0;
+            	}
+            	
+            }
         }
   
 
@@ -118,29 +128,35 @@ public class Entity {
 		   worldX - gp.titleSize < gp.player.worldX + gp.player.screenX &&
 		   worldY + gp.titleSize > gp.player.worldY - gp.player.screenY &&
 		   worldY - gp.titleSize < gp.player.worldY + gp.player.screenY) {
-			if (directions != null) {
+			
 	            switch (directions) {
 	                case "up":
-	                    image = (spritNum == 1) ? up1 : up2;
+	                    if(spritNum == 1) {image=up1;}
+	                    if(spritNum == 2) {image=up2;}
 	                    break;
 	                case "down":
-	                    image = (spritNum == 1) ? down1 : down2;
-	                    break;
+	                	  if(spritNum == 1) {image=down1;}
+		                    if(spritNum == 2) {image=down2;}
+		                    break;
 	                case "left":
-	                    image = (spritNum == 1) ? left1 : left2;
-	                    break;
+	                	  if(spritNum == 1) {image=left1;}
+		                    if(spritNum == 2) {image=left2;}
+		                    break;
 	                case "right":
-	                    image = (spritNum == 1) ? right1 : right2;
-	                    break;
+	                	  if(spritNum == 1) {image=right1;}
+		                    if(spritNum == 2) {image=right2;}
+		                    break;
 	            }
-	        } else {
-	            // Image par défaut si aucune direction n'est définie
-	            image = down1;
-	        } 
-		}
+	            if(invincible==true) {
+	            	g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.4f));
+	            }
+	       
+		
 			g2.drawImage(image, screenX, screenY, gp.titleSize, gp.titleSize, null);
-			
-		} 
+		  	g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
+		}
+		}
+		
 	public BufferedImage setup (String imagePath,int width,int height) {
     	UtilityTool uTool = new UtilityTool();
     	BufferedImage image = null;
