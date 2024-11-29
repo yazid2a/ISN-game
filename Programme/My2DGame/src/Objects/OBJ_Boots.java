@@ -12,7 +12,7 @@ public class OBJ_Boots extends Entity {
 	public OBJ_Boots(GamePanel gp) {
 		super(gp);
 	name = "Boots";
-	down1=setup("/Objects/boots");
+	down1=setup("/Objects/boots",gp.titleSize,gp.titleSize);
 
 }
 

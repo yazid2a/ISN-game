@@ -37,6 +37,7 @@ public class Player extends Entity {
         
         setDefaultValues();
         getPlayerImage();
+        getPlayerAttackImage();
     }
 
     public void setDefaultValues() {
@@ -52,19 +53,35 @@ public class Player extends Entity {
 
     public void getPlayerImage() {
         
-            up1 = setup("/player/boy_up_1");
-            up2 = setup("/player/boy_up_2");
-            down1 = setup("/player/boy_down_1");
-            down2 = setup("/player/boy_down_2");
-            left1 = setup("/player/boy_left_1");
-            left2 = setup("/player/boy_left_2");
-            right1 = setup("/player/boy_right_1");
-            right2 = setup("/player/boy_right_2");
+            up1 = setup("/player/boy_up_1",gp.titleSize,gp.titleSize);
+            up2 = setup("/player/boy_up_2",gp.titleSize,gp.titleSize);
+            down1 = setup("/player/boy_down_1",gp.titleSize,gp.titleSize);
+            down2 = setup("/player/boy_down_2",gp.titleSize,gp.titleSize);
+            left1 = setup("/player/boy_left_1",gp.titleSize,gp.titleSize);
+            left2 = setup("/player/boy_left_2",gp.titleSize,gp.titleSize);
+            right1 = setup("/player/boy_right_1",gp.titleSize,gp.titleSize);
+            right2 = setup("/player/boy_right_2",gp.titleSize,gp.titleSize);
         
+    }
+    public void getPlayerAttackImage() {
+    	 attackUp1 = setup("/player/boy_attack_up_1",gp.titleSize,gp.titleSize*2);
+         attackUp2 = setup("/player/boy_attack_up_2",gp.titleSize,gp.titleSize*2);
+         attackDown1 = setup("/player/boy_attack_down_1",gp.titleSize,gp.titleSize*2);
+         attackDown2 = setup("/player/boy_attack_down_2",gp.titleSize,gp.titleSize*2);
+         attackLeft1 = setup("/player/boy_attack_left_1",gp.titleSize*2,gp.titleSize);
+         attackLeft2 = setup("/player/boy_attack_left_2",gp.titleSize*2,gp.titleSize);
+         attackRight1 = setup("/player/boy_attack_right_1",gp.titleSize*2,gp.titleSize);
+         attackRight2 = setup("/player/boy_attack_right_2",gp.titleSize*2,gp.titleSize);
+     
     }
    
     public void update() {
-    	if(keyH.upPressed==true||keyH.downPressed==true||
+    	
+    	if(attacking==true) {
+    		attacking();
+    		
+    	}
+    	else if(keyH.upPressed==true||keyH.downPressed==true||
     	keyH.leftPressed==true||keyH.rightPressed==true||keyH.enterPressed==true) {
        
     	if (keyH.upPressed==true) {
@@ -78,14 +95,8 @@ public class Player extends Entity {
     
         } else if (keyH.rightPressed==true) {
             directions = "right";
-        } //else {
-           // directions = null; // Si aucune touche n'est pressée, la direction est null
-       // }
-
-       
-        
-          
-        //if (directions != null) {
+        }
+ 
             collisionOn = false;
             gp.cChecker.checkTile(this);
             
@@ -105,9 +116,6 @@ public class Player extends Entity {
             //check EVENT
             gp.eHandler.checkEvent();
 
-            //gp.keyH.enterPressed=false;
-            // Si la collision est fausse, le joueur peut se déplacer
-            //if (!collisionOn) {
             if(collisionOn==false && gp.keyH.enterPressed==false) {
                 switch (directions) {
                     case "up":worldY -= speed;
@@ -121,7 +129,6 @@ public class Player extends Entity {
                 }
             }
             gp.keyH.enterPressed=false;
-        //}
         spriteCounter++;
         if(spriteCounter>12) {
         	if(spritNum==1) {
@@ -152,14 +159,21 @@ public class Player extends Entity {
         }
     	}
 
-        // Animation du joueur
-       // spriteCounter++;
-        //if (spriteCounter > 10) {
-           // spritNum = (spritNum == 1) ? 2 : 1;
-            //spriteCounter = 0;
-       // }
-   // }
-    
+public void attacking() {
+	
+	spriteCounter++;
+	if(spriteCounter<=5) {
+		spritNum=1;
+	}
+	if(spriteCounter>5 && spriteCounter<=25) {
+		spritNum=2;
+	}
+	if(spriteCounter>25) {
+		spritNum=1;
+		spriteCounter=0;
+		attacking=false;
+	}
+}
     
     
     public void pickUpObject(int i) {
@@ -169,13 +183,15 @@ public class Player extends Entity {
     	
     }
     public void intercatNPC(int i) {
-if (i != 999) {
-	if(gp.keyH.enterPressed==true) {
-		gp.gameState=gp.dialogueState;
-		gp.npc[i].speak();
-	}
+    	if(gp.keyH.enterPressed==true) {
+    		if (i != 999) {
+    				gp.gameState=gp.dialogueState;
+    				gp.npc[i].speak();
 	
-    		
+    		    	}
+    		else {
+    			attacking=true;
+    		}	
     	}
     }
     
@@ -189,50 +205,63 @@ if (i != 999) {
     }
 
     public void draw(Graphics2D g2) {
+    	
         BufferedImage image = null;
+        int tempScreenX=screenX;
+        int tempScreenY=screenY;
 
         // Choix de l'image en fonction de la direction et de l'animation
         //if (directions != null) {
             switch (directions) {
                 case "up":
-                	if(spritNum==1) {
-                		image=up1;
+                	if(attacking==false) {
+                		if(spritNum==1) {image=up1;}
+                        if(spritNum == 2) {image = up2;}
                 	}
-                    if(spritNum == 2) { 
-                    	image = up2;}
+                	if(attacking==true) {
+                		tempScreenY=screenY- gp.titleSize;
+                		if(spritNum==1) {image=attackUp1;}
+                        if(spritNum == 2) {image = attackUp2;}
+                	}
                     break;
                 case "down":
-                	if(spritNum==1) {
-                		image=down1;
+                	if(attacking==false) {
+                		if(spritNum==1) {image=down1;}
+                        if(spritNum == 2) {image = down2;}
                 	}
-                    if(spritNum == 2) { 
-                    	image = down2;}
+                	if(attacking==true) {
+                		if(spritNum==1) {image=attackDown1;}
+                        if(spritNum == 2) {image = attackDown2;}
+                	}
                     break;
                 case "left":
-                	if(spritNum==1) {
-                		image=left1;
+                	if(attacking==false) {
+                		if(spritNum==1) {image=left1;}
+                        if(spritNum == 2) {image = left2;}
                 	}
-                    if(spritNum == 2) { 
-                    	image = left2;}
+                	if(attacking==true) {
+                		tempScreenX=screenX-gp.titleSize;
+                		if(spritNum==1) {image=attackLeft1;}
+                        if(spritNum == 2) {image = attackLeft2;}
+                	}
                     break;
                 case "right":
-                	if(spritNum==1) {
-                		image=right1;
+                	if(attacking==false) {
+                		if(spritNum==1) {image=right1;}
+                        if(spritNum == 2) {image = right2;}
                 	}
-                    if(spritNum == 2) { 
-                    	image = right2;}
+                	if(attacking==true) {
+                		if(spritNum==1) {image=attackRight1;}
+                        if(spritNum == 2) {image = attackRight2;}
+                	}
                     break;
             }
-        //} else {
-            // Image par défaut si aucune direction n'est définie
-            //image = down1;
-       // }
-            
+     
             if(invincible==true) {
             	g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.3f));
             }
 
-        g2.drawImage(image, screenX, screenY, null);
+        g2.drawImage(image, tempScreenX, tempScreenY, null);
         
         //reste Alpha
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));

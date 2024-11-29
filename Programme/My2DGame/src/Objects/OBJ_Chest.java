@@ -12,7 +12,7 @@ public class OBJ_Chest extends Entity{
 	public OBJ_Chest(GamePanel gp) {
 		super(gp);
 	name = "Chest";
-	down1=setup("/Objects/chest");
+	down1=setup("/Objects/chest",gp.titleSize,gp.titleSize);
 }
 
 }

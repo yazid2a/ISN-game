@@ -12,7 +12,7 @@ public class OBJ_Door extends Entity {
 	public OBJ_Door(GamePanel gp) {
 		super(gp);
 	name = "Door";
-	down1=setup("/Objects/door");
+	down1=setup("/Objects/door",gp.titleSize,gp.titleSize);
 	collision =true;
 	
 	solidArea.x=0;
