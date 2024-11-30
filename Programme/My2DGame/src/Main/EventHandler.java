@@ -97,6 +97,7 @@ public class EventHandler {
 		  gp.playSE(2);
 		  gp.ui.currentDialogue="Tu as bu de l'eau.\n Ta vie a été restaurée.  ";
 		  gp.player.life=gp.player.maxLife;
+		  gp.aSetter.setMonster();
 	  }
 	 
   }

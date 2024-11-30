@@ -24,12 +24,27 @@ GamePanel gp;
 	
 	}
 	public void setMonster() {
-		gp.monster[0]=new MON_GreenSlime(gp);
-		gp.monster[0].worldX=gp.titleSize*23;
-		gp.monster[0].worldY=gp.titleSize*36;
+		int i=0;
+		gp.monster[i]=new MON_GreenSlime(gp);
+		gp.monster[i].worldX=gp.titleSize*21;
+		gp.monster[i].worldY=gp.titleSize*38;
+		i++;
+		gp.monster[i]=new MON_GreenSlime(gp);
+		gp.monster[i].worldX=gp.titleSize*23;
+		gp.monster[i].worldY=gp.titleSize*42;
+		i++;
+		gp.monster[i]=new MON_GreenSlime(gp);
+		gp.monster[i].worldX=gp.titleSize*24;
+		gp.monster[i].worldY=gp.titleSize*37;
+		i++;
+		gp.monster[i]=new MON_GreenSlime(gp);
+		gp.monster[i].worldX=gp.titleSize*34;
+		gp.monster[i].worldY=gp.titleSize*42;
+		i++;
+		gp.monster[i]=new MON_GreenSlime(gp);
+		gp.monster[i].worldX=gp.titleSize*38;
+		gp.monster[i].worldY=gp.titleSize*42;
+		i++;
 		
-		gp.monster[1]=new MON_GreenSlime(gp);
-		gp.monster[1].worldX=gp.titleSize*23;
-		gp.monster[1].worldY=gp.titleSize*37;
 	}
 }
