@@ -1,10 +1,13 @@
 package Main;
 
+import Objects.OBJ_Axe;
 import Objects.OBJ_Boots;
 
 import Objects.OBJ_Chest;
 import Objects.OBJ_Door;
 import Objects.OBJ_Key;
+import Objects.OBJ_Potion_Red;
+import Objects.OBJ_Shield_Blue;
 import entity.NPC_OldMan;
 import monster.MON_GreenSlime;
 
@@ -15,6 +18,31 @@ GamePanel gp;
 		
 	}
 	public void setObject() {
+		int i =0;
+		gp.obj[i]=new OBJ_Key(gp);
+		gp.obj[i].worldX=gp.titleSize*25;
+		gp.obj[i].worldY=gp.titleSize*19;
+		i++;
+		gp.obj[i]=new OBJ_Key(gp);
+		gp.obj[i].worldX=gp.titleSize*21;
+		gp.obj[i].worldY=gp.titleSize*19;
+		i++;
+		gp.obj[i]=new OBJ_Key(gp);
+		gp.obj[i].worldX=gp.titleSize*26;
+		gp.obj[i].worldY=gp.titleSize*21;
+		i++;
+		gp.obj[i]=new OBJ_Axe(gp);
+		gp.obj[i].worldX=gp.titleSize*33;
+		gp.obj[i].worldY=gp.titleSize*21;
+		i++;
+		gp.obj[i]=new OBJ_Shield_Blue(gp);
+		gp.obj[i].worldX=gp.titleSize*35;
+		gp.obj[i].worldY=gp.titleSize*21;
+		i++;
+		gp.obj[i]=new OBJ_Potion_Red(gp);
+		gp.obj[i].worldX=gp.titleSize*22;
+		gp.obj[i].worldY=gp.titleSize*27;
+		i++;
 		
 	}
 	public void setNPC(){

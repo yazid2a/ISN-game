@@ -1,11 +1,5 @@
-/MAPS/
-/Main/
-/Objects/
-/entity/
-/monster/
-/npc/
-/player/
-/sound/
-/tile/
-/tiles/
 /META-INF/
+/Objects/
+/monster/
+/Main/
+/entity/

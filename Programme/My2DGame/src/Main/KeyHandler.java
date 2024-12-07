@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 	GamePanel gp;
-	public boolean upPressed , downPressed , leftPressed , rightPressed,enterPressed;
+	public boolean upPressed , downPressed , leftPressed , rightPressed,enterPressed,shotKeyPressed;
 	boolean checkDrawTime = false;
 	public KeyHandler(GamePanel gp) {
 		this.gp = gp;
@@ -73,6 +73,11 @@ public class KeyHandler implements KeyListener {
 		if(code == KeyEvent.VK_ENTER) {				
 			enterPressed=true;						
 		}
+		
+		if(code == KeyEvent.VK_F) {				
+			shotKeyPressed=true;						
+		}
+		
 		if (code == KeyEvent.VK_T) {
 			if (checkDrawTime == false){
 				checkDrawTime = true;
@@ -103,7 +108,30 @@ public class KeyHandler implements KeyListener {
 		if (code==KeyEvent.VK_C) {
 			gp.gameState=gp.playState;
 		}
-		
+		if (code == KeyEvent.VK_W) {
+			if(gp.ui.slotRow != 0) {
+			gp.ui.slotRow--;	
+			gp.playSE(9);
+			}
+		}
+		if (code == KeyEvent.VK_A) {
+			if(gp.ui.slotCol != 0) {
+			gp.ui.slotCol--;
+			gp.playSE(9);
+				}}
+		if (code == KeyEvent.VK_S) {
+			if(gp.ui.slotRow != 3) {
+			gp.ui.slotRow++;
+			gp.playSE(9);
+		}}
+		if (code == KeyEvent.VK_D) {
+			if(gp.ui.slotCol != 4) {
+			gp.ui.slotCol++;
+			gp.playSE(9);
+		}}
+		if(code == KeyEvent.VK_ENTER) {
+			gp.player.selectItem(); 
+		}
 		
 	}
 	
@@ -126,7 +154,9 @@ public class KeyHandler implements KeyListener {
 		}
 		if(code == KeyEvent.VK_D) {
 			rightPressed = false;
-			
+		}
+		if(code == KeyEvent.VK_F) {				
+			shotKeyPressed=false;						
 		}
 		
 	}

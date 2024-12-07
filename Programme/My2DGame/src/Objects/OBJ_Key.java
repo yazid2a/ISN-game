@@ -9,8 +9,9 @@ public class OBJ_Key extends Entity {
 	public OBJ_Key(GamePanel gp) {
 		super(gp);
 		
-		name = "Key";
+		name = "clé";
 		down1=setup("/Objects/key",gp.titleSize,gp.titleSize);
+		description="[" + name + "]\nil permet d'ouvrir \n des portes.";
 	
 }
 }
