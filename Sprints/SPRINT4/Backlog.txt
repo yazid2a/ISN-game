@@ -4,11 +4,11 @@ Fonctionnalité 2: Permettre au joueur de se défendre face aux monstres en util
 
 Fonctionnalité 3: Clarifier les contrôles du jeu en affichant une section dédiée aux commandes du clavier dans le menu principal.
 
-Fonctionnalité 4: Mettre un menu dynamique qui permet d'afficher les informations essentielles pour le joueur, telles que le niveau du joueur, la durée de vies restantes, et le nombre d'outils d'attaque disponibles.
+Fonctionnalité 4: Mettre un menu dynamique qui permet d'afficher les informations essentielles pour le joueur, telles que le niveau du joueur, la durée de vies restantes, et le nombre d'outils d'attaque disponibles.(EL ARCHAOUI)
 
 Fonctionnalité 5: Ajouter un menu qui affiche les objets recoltés par le joueur.(Hebbi)
 
-Fonctionnalité 6:  Permettre au joueur de récupérer de l'énergie mana en tuant les monstres.cela permet d'augmenter la durée de sa vie .
+Fonctionnalité 6:  Permettre au joueur de récupérer de l'énergie mana en tuant les monstres.cela permet d'augmenter la durée de sa vie .(YAZID)
 
 Joueur peut lancer des balles
 
