@@ -8,7 +8,7 @@ public class OBJ_Axe extends Entity{
 		super(gp);
 		name="Axe";
 		type= type_axe;
-		down1 = setup("/objects/axe",gp.titleSize,gp.titleSize);
+		down1 = setup("/Objects/axe",gp.titleSize,gp.titleSize);
 		attackValue=2;
 		attackArea.width = 30;
 		attackArea.height=30;
