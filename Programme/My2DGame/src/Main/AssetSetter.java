@@ -10,6 +10,7 @@ import Objects.OBJ_Potion_Red;
 import Objects.OBJ_Shield_Blue;
 import entity.NPC_OldMan;
 import monster.MON_GreenSlime;
+import tile_interactive.IT_DryTree;
 
 public class AssetSetter {
 GamePanel gp;
@@ -75,4 +76,127 @@ GamePanel gp;
 		i++;
 		
 	}
+	public void setInteractiveTile() {
+	    int i = 0;
+	    int j=0;
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12);
+	    i++;
+	    j++;
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	    //13
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12+j);
+	    i++;
+	    j++;
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	//14    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12+j);
+	    i++;
+	    j++;
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	//15    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12+j);
+	    i++;
+	    j++;
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	//16    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12+j);
+	    i++;
+	    j++;   
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12+j);//17
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12+j);
+	    i++;
+	    j++;
+	    gp.iTile[i] = new IT_DryTree(gp,26,12+j);	//18    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,27,12+j);	    
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,28,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,29,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,30,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,31,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,32,12+j);
+	    i++;
+	    gp.iTile[i] = new IT_DryTree(gp,33,12+j);
+	    i++;
+	}
+
 }

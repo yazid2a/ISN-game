@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
+import tile_interactive.InteractiveTile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,12 +49,14 @@ public class GamePanel extends JPanel implements Runnable {
 	public Entity obj[]= new Entity[10];
 	public Entity npc[]=new Entity[10];
 	public Entity monster[]=new Entity[20];
+	public InteractiveTile iTile []=new InteractiveTile[60];
 	public ArrayList<Entity> projectileList = new ArrayList<>();
 	ArrayList<Entity> entityList=new ArrayList<>();
 	
 
 	//public ArrayList<monster> monsters = new ArrayList<>();
-	public int gameState; 
+	public int gameState;
+
 	public final int titleState =0;
 	public final int playState = 1;
 	public final int pauseState = 2;
@@ -74,9 +77,10 @@ public class GamePanel extends JPanel implements Runnable {
 		aSetter.setObject();
 		aSetter.setNPC();
 		aSetter.setMonster();
+		aSetter.setInteractiveTile();
 		playMusic(0);
 		//stopMusic();
-		gameState = playState;
+		gameState = titleState;
 	}
 	public void startGameThread() {
 		gameThread = new Thread(this);
@@ -146,7 +150,14 @@ public class GamePanel extends JPanel implements Runnable {
 				}
 			
 		}
+			
 		}
+		for (int i=0;i<iTile.length;i++) {
+			if(iTile[i]!=null) {
+				iTile[i].update();
+			}
+		}
+		
 		
 		}if(gameState == pauseState) {
 		}
@@ -170,6 +181,11 @@ public class GamePanel extends JPanel implements Runnable {
 		else {
 		//tile
 		tileM.draw(g2);
+		for (int i=0;i<iTile.length;i++) {
+			if(iTile[i]!=null) {
+				iTile[i].draw(g2);
+			}
+		}
 		// ADD ENTITIES TO THE LIST
 		entityList.add(player);
 		for(int i=0;i<npc.length;i++) {

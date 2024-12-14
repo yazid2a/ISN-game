@@ -5,8 +5,10 @@ Main\GamePanel$1.class
 entity\Player.class
 Main\AssetSetter.class
 monster\MON_GreenSlime.class
+tile_interactive\InteractiveTile.class
 Main\CollisionCheck.class
 Objects\OBJ_Shield_Blue.class
+tile_interactive\IT_DryTree.class
 tile\Tile.class
 entity\Projectile.class
 Objects\OBJ_Potion_Red.class

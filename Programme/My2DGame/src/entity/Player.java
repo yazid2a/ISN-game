@@ -162,7 +162,7 @@ public class Player extends Entity {
             //verifie la collision avec monster
             int monsterIndex=gp.cChecker.checkEntity(this,gp.monster);
             contactMonster(monsterIndex);
-            
+            int iTileIndex=gp.cChecker.checkEntity(this,gp.iTile);
             
             //check EVENT
             gp.eHandler.checkEvent();
@@ -257,7 +257,8 @@ public void attacking() {
 		// check monster collision with the updated worldX,worldY and solidArea
 		int monsterIndex = gp.cChecker.checkEntity(this,gp.monster);
 		damageMonster(monsterIndex, attack);
-		
+		int iTileIndex=gp.cChecker.checkEntity(this, gp.iTile);
+		damageInteractiveTile(iTileIndex);
 		//after checking collision, remote the original data
 		worldX = currentWorldX;
 		worldY = currentWorldY;
@@ -322,7 +323,19 @@ public void attacking() {
     		
     	}
     }
-    public void checkLevelUp() {
+    public void damageInteractiveTile(int i) {
+    	if(i!=999 && gp.iTile[i].destructible==true) {
+    		gp.iTile[i]=null;
+    	}
+    	
+    }
+
+
+
+
+
+
+public void checkLevelUp() {
     	if(exp>=nextLevelExp) {
     		level++;
     		nextLevelExp=nextLevelExp*2;

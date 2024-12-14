@@ -23,6 +23,7 @@ public class UI {
 	ArrayList<Integer> messageCounter=new ArrayList<>();
 	public boolean gameFinished = false;
 	public String currentDialogue="";
+	public int commandNum=0;
 	
 	public int slotCol=0;
 	public int slotRow=0;
@@ -54,6 +55,9 @@ public class UI {
 		this.g2= g2;
 		g2.setFont(arial_40);
 		g2.setColor(Color.white);
+		if(gp.gameState==gp.titleState) {
+			drawTitleScreen();
+		}
 		//play state
 		if(gp.gameState == gp.playState) {
 			drawPlayerLife();
@@ -127,7 +131,8 @@ public class UI {
 			}
 		}
 	}
-	private void drawPauseScreen() {
+	
+public void drawPauseScreen() {
 		g2.setFont(g2.getFont().deriveFont(Font.PLAIN,80F));
 		String text = "--PauSed--";
 		int x = getXforCenteredText(text) ;
@@ -135,6 +140,46 @@ public class UI {
 		g2.drawString(text, x, y);
 		
 	}
+public void drawTitleScreen()
+{
+	g2.setColor(new Color(20,60,40));
+	g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight); 
+	// TITLE NAME 
+	g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F)); 
+	String text = "Saga du Héros";
+	int x = getXforCenteredText(text); 
+	int y = gp.titleSize*3; // SHADOW
+	g2.setColor(Color.gray); 
+	g2.drawString(text, x-160, y); // MAIN COLOR 
+	g2.setColor(Color.white); 
+	g2.drawString(text, x-160, y);
+	// BLUE BOY IMAGE
+	x = gp.screenWidth / 2 - (gp.titleSize * 2) / 2;
+	y += gp.titleSize * 2;
+	g2.drawImage(gp.player.down1, x, y-50, gp.titleSize * 2, gp.titleSize * 2, null);
+	// MENU
+	g2.setFont(g2.getFont().deriveFont(Font.BOLD, 24F));
+
+	text = "Nouvelle Partie";
+	x = getXforCenteredText(text);
+	y += gp.titleSize*3.5;
+	g2.drawString(text, x-80, y-50);
+	if(commandNum == 0) { g2.drawString(">", x-80-gp.titleSize, y-50); }
+
+	/*text = "Charger une Partie";
+	x = getXforCenteredText(text);
+	y += gp.titleSize;
+	g2.drawString(text, x-80, y-50);
+	if(commandNum == 1) { g2.drawString(">", x-80-gp.titleSize, y-50); }*/
+
+	text = "Quitter";
+	x = getXforCenteredText(text);
+	y += gp.titleSize;
+	g2.drawString(text, x-80, y-50);
+	if(commandNum == 1) { g2.drawString(">", x-80-gp.titleSize, y-50); }
+
+	
+}
 	public void drawDialogueScreen() {
 		//Window
 		int x=gp.titleSize*2-20;
@@ -326,7 +371,7 @@ public class UI {
 		g2.drawRoundRect(x+5,y+5,width-10,height-10,25,25);
 	}
 
-	private int getXforCenteredText(String text) {
+	public int getXforCenteredText(String text) {
 		int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
 		int x = gp.screenWidth/2;
 		
