@@ -1,4 +1,4 @@
-package Main;
+  package Main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,7 +22,10 @@ public class KeyHandler implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		int code = e.getKeyCode();
 		// TITLE STATE
-		if (gp.gameState == gp.titleState) {
+		
+
+
+		
 
 		    if (code == KeyEvent.VK_W) {
 		        gp.ui.commandNum--;
@@ -50,7 +53,7 @@ public class KeyHandler implements KeyListener {
 		        }
 		    }
 
-		}
+		
 
 		//play state
 		if(gp.gameState==gp.playState) {
@@ -70,13 +73,48 @@ public class KeyHandler implements KeyListener {
 		else if(gp.gameState==gp.characterState) {
 		characterState(code);	
 		}
+		else if(gp.gameState==gp.gameOverState) {
+		gameOverState(code);
 		
 		
 		
 		
 		
+		
+		}}
+		public void gameOverState(int code) {
+			if (gp.gameState == gp.titleState) {
+				if (code == KeyEvent.VK_W) {
+				    gp.ui.commandNum--;
+				    if (gp.ui.commandNum < 0) {
+				        gp.ui.commandNum = 1;
+				    }
+				    gp.playSE(9);
+				}
+				if (code == KeyEvent.VK_S) {
+				    gp.ui.commandNum++;
+				    if (gp.ui.commandNum > 1) {
+				        gp.ui.commandNum = 0;
+				    }
+				    gp.playSE(9);
+				}}
+			if(code == KeyEvent.VK_ENTER) {
+			    if(gp.ui.commandNum == 0) {
+			        gp.gameState = gp.playState;
+			        gp.retry();
+			    }
+			    else if(gp.ui.commandNum == 1) {
+			        gp.gameState = gp.titleState;
+			        gp.restart();
+			    }
+			}
+
 		}
-	public void titleState(int code) {
+		
+		
+		
+		
+		public void titleState(int code) {
 		
 	}
 	public void playState(int code) {
@@ -192,5 +230,7 @@ public class KeyHandler implements KeyListener {
 		
 	}
 	
-
 }
+	
+
+

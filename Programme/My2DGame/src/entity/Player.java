@@ -76,8 +76,19 @@ public class Player extends Entity {
         defense=getDefense();
     }
     
-    
+    public void setDefaultPositions() {
+        worldX = gp.titleSize * 23;
+        worldY = gp.titleSize * 21;
+        directions= "down";
+    }
+    public void restoreLifeAndMana() {
+        life = maxLife;
+       
+        invincible = false;
+    }
+
     public void setItems() {
+    	inventory.clear();
     	inventory.add(currentWeapon);
     	inventory.add(currentShield);
     	inventory.add(new OBJ_Key(gp));
@@ -225,6 +236,9 @@ public class Player extends Entity {
         }
         if(shotAvailableCounter<30) {
         	shotAvailableCounter++;
+        }
+        if(life<=0) {
+        	gp.gameState=gp.gameOverState;
         }
     	}
 

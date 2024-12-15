@@ -80,9 +80,15 @@ public class UI {
 			drawCharacterScreen();
 			drawInventory();
 		}
+		if(gp.gameState==gp.gameOverState) {
+			
+			drawGameOverScreen();
+		}
 }
 	
 	//Dessiner le maximum de vies:
+	
+
 
 	public void drawPlayerLife() {
 		//gp.player.life=5;
@@ -356,7 +362,45 @@ public void drawTitleScreen()
 		
 		
 	}
-	
+	public void drawGameOverScreen() {
+
+	    g2.setColor(new Color(0, 0, 150,100));
+	    g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+	    int x;
+	    int y;
+	    String text;
+	    g2.setFont(g2.getFont().deriveFont(Font.BOLD, 70F));
+
+	    text = "Game Over";
+
+	    // Shadow
+	    g2.setColor(Color.black);
+	    x = getXforCenteredText(text);
+	    y = gp.titleSize * 4;
+	    g2.drawString(text, x-180, y-50);
+
+	    // Main
+	    g2.setColor(Color.white);
+	    g2.drawString(text, x - 180, y - 50);
+	 // Retry
+	    g2.setFont(g2.getFont().deriveFont(25F));
+	    text = "Rejouer";
+	    x = getXforCenteredText(text);
+	    y += gp.titleSize * 4;
+	    g2.drawString(text, x-70, y-120);
+	    if(commandNum == 0) { g2.drawString(">", x-70-gp.titleSize, y-120); }
+
+	    // Back to the title screen
+	    text = "Quitter";
+	    x = getXforCenteredText(text);
+	    y += 55;
+	    g2.drawString(text, x-70, y-120);
+	    if(commandNum == 1) { g2.drawString(">", x-70-gp.titleSize, y-120); }
+
+	}
+
+
 	public int getItemIndexOnSlot() {
 		int itemIndex=slotCol+ (slotRow*5);
 		return itemIndex;
