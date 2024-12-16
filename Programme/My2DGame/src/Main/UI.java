@@ -22,6 +22,8 @@ public class UI {
 	ArrayList<String> message=new ArrayList<>();
 	ArrayList<Integer> messageCounter=new ArrayList<>();
 	public boolean gameFinished = false;
+	double playTime;
+	DecimalFormat dFormat=new DecimalFormat("#0.00");
 	public String currentDialogue="";
 	public int commandNum=0;
 	
@@ -52,9 +54,47 @@ public class UI {
 	}
 	
 	public void draw(Graphics2D g2) {
+		if(gameFinished==true) {
+			
+			
+			g2.setFont(arial_40);
+			g2.setColor(Color.white);
+			String text;
+			int textLength;
+			int x;
+			int y;
+			
+			text="tu as trouvé le trésor!";
+			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+			 x = gp.screenWidth/2-textLength/2;
+			 y = gp.screenHeight/2 - (gp.titleSize*3);
+			 g2.drawString(text, x, y);
+			 
+			 text="votre temps est : "+ dFormat.format(playTime)+ "!";
+				textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+				 x = gp.screenWidth/2-textLength/2;
+				 y = gp.screenHeight/2 + (gp.titleSize*4);
+				 g2.drawString(text, x, y);
+			 
+			 g2.setFont(arial_80B);
+			 g2.setColor(Color.yellow);
+			 text="Félicitation!";
+			textLength=(int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+			 x = gp.screenWidth/2-textLength/2;
+			 y = gp.screenHeight/2 + (gp.titleSize*2);
+			 g2.drawString(text, x, y);
+			 gp.gameThread= null; 
+		}
+		else {
 		this.g2= g2;
 		g2.setFont(arial_40);
 		g2.setColor(Color.white);
+		
+		// time 
+		playTime+=(double)1/60;
+		g2.drawString("Time : "+dFormat.format(playTime), gp.titleSize*11, 65);
+		
+		
 		if(gp.gameState==gp.titleState) {
 			drawTitleScreen();
 		}
@@ -85,7 +125,7 @@ public class UI {
 			drawGameOverScreen();
 		}
 }
-	
+	}
 	//Dessiner le maximum de vies:
 	
 
@@ -154,7 +194,7 @@ public void drawTitleScreen()
 	g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F)); 
 	String text = "Saga du Héros";
 	int x = getXforCenteredText(text); 
-	int y = gp.titleSize*3; // SHADOW
+	int y = gp.titleSize*1; // SHADOW
 	g2.setColor(Color.gray); 
 	g2.drawString(text, x-160, y); // MAIN COLOR 
 	g2.setColor(Color.white); 
@@ -168,8 +208,14 @@ public void drawTitleScreen()
 
 	text = "Nouvelle Partie";
 	x = getXforCenteredText(text);
-	y += gp.titleSize*3.5;
+	y += gp.titleSize*3;
 	g2.drawString(text, x-80, y-50);
+	
+	g2.drawString("comment jouer?",gp.titleSize*3,gp.titleSize*7);
+	g2.drawString("il faut choisir le mode QWERTY",gp.titleSize*3,gp.titleSize*8);
+	g2.drawString("W : aller en haut | S : aller en bas ",gp.titleSize*3,gp.titleSize*9);
+	g2.drawString("Q : aller en gauche | D : aller en droite",gp.titleSize*3,gp.titleSize*10);
+	g2.drawString("Entré / F : FIGHT! | C = inventaire",gp.titleSize*3,gp.titleSize*11);
 	if(commandNum == 0) { g2.drawString(">", x-80-gp.titleSize, y-50); }
 
 	/*text = "Charger une Partie";

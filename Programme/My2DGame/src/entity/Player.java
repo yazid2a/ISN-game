@@ -25,6 +25,7 @@ public class Player extends Entity {
     public final int screenY;
     int standCounter = 0;
     int counter2 = 0;    
+    int haskey = 0;
     
     public ArrayList<Entity> inventory = new ArrayList<>();
     
@@ -91,7 +92,6 @@ public class Player extends Entity {
     	inventory.clear();
     	inventory.add(currentWeapon);
     	inventory.add(currentShield);
-    	inventory.add(new OBJ_Key(gp));
 
     }
     public int getAttack() {
@@ -288,20 +288,50 @@ public void attacking() {
     
     
     public void pickUpObject(int i) {
+    	
     	if (i != 999) {
     		
-    		String text;
-    		if(inventory.size() != maxnInventorySize) {
+    	String objectName = gp.obj[i].name;
+ 
+    	String text;
+    	if (objectName != "porte") {
+    		if((inventory.size() != maxnInventorySize)) {
     			inventory.add(gp.obj[i]);
     			gp.playSE(1);
     			text ="vous avez pris un(e) " + gp.obj[i].name+"!";
+    			if (gp.obj[i].name == "clé") {
+    				haskey++;
+    			}
+    			if (gp.obj[i].name == "coffre") {
+        			gp.ui.gameFinished=true;
+        			gp.stopMusic();
+        			gp.playSE(4);
+        			}
     		}
     		else {
     			text = "l'inventaire est pleine!";
     	}
     	gp.ui.addMessage(text);
     	gp.obj[i]=null;
-    }}
+    }
+    	
+    	else {
+			switch (objectName) {
+    		case "porte":
+    			if (haskey > 0) {
+    			gp.obj[i] = null;
+    			haskey--;
+    			gp.ui.addMessage("vous avez ouvris la porte");
+    			}
+    			else {
+    				gp.ui.addMessage("vous avez besoin d'une clé");
+    			}
+    			break;
+    		
+    		
+    		}
+    	}}}
+    	
     public void intercatNPC(int i) {
     	if(gp.keyH.enterPressed==true) {
     		if (i != 999) {
