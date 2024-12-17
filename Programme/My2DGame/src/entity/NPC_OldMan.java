@@ -26,7 +26,7 @@ public class NPC_OldMan extends Entity{
 
 }
 	public void setDialogue() {
-		dialogues[0]="Hello!!                             Press Enter";
+		dialogues[0]="Bonjour! il faut que tu cherche les \n clés et trouver le trésor";
 	}
 	public void setAction() {
 		actionLockCounter ++;
