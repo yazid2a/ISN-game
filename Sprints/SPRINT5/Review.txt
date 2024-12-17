@@ -1,0 +1,17 @@
+Fonctionnalité 1: Faire un menu qui permet à l'utilisateur de commencer le jeu, faire un pause ou quitter le jeu.(El Archaoui)-->ok
+
+Fonctionnalité 2: Permettre au joueur de se défendre face aux monstres en utilisant une arme(épée ou flammes).(Hidaya,El Archaoui,E Yazid)-->ok
+
+Fonctionnalité 3: Clarifier les contrôles du jeu en affichant une section dédiée aux commandes du clavier dans le menu principal.-->ok
+
+Fonctionnalité 4: Mettre un menu dynamique qui permet d'afficher les informations essentielles pour le joueur, telles que le niveau du joueur, la durée de vies restantes, et le nombre d'outils d'attaque disponibles.(EL ARCHAOUI)-->ok
+
+Fonctionnalité 5: Ajouter un menu qui affiche les objets recoltés par le joueur.(Hebbi)-->ok
+
+Fonctionnalité 6:  Permettre au joueur de récupérer de l'énergie mana en tuant les monstres.cela permet d'augmenter la durée de sa vie .(Yazid)-->Non
+
+Joueur peut lancer des balles-->ok
+
+Joueur peut marcher dans le sable (avance moins vite)-->Non
+
+Joueur peut couper les arbres (il lui change entre les armes)-->ok
